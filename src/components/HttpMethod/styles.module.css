@@ -1,0 +1,28 @@
+.method {
+  padding: 3px 10px;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.get {
+  background-color: var(--method-get-color);
+}
+
+.post {
+  background-color: var(--method-post-color);
+}
+
+.put {
+  background-color: var(--method-put-color);
+}
+
+.delete {
+  background-color: var(--method-delete-color);
+}
+
+.patch {
+  background-color: var(--method-patch-color);
+} 

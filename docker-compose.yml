@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  docs-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    volumes:
+      - ./build:/app/build
+    environment:
+      - NODE_ENV=production
+    command: npm run build
+    restart: "no"
+    profiles: ["build"]
+
+  docs-serve:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3012:80"
+    restart: unless-stopped
+    profiles: ["serve"]
+    depends_on:
+      - docs-build
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  docs-dev:
+    image: node:18-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm start -- --host 0.0.0.0"
+    ports:
+      - "3012:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    profiles: ["dev"]

@@ -1,0 +1,401 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --method-get-color: #2ea043;    /* Green */
+  --method-post-color: #f0883e;   /* Orange */
+  --method-put-color: #3178c6;    /* Blue */
+  --method-delete-color: #cf222e;  /* Red */
+  --method-patch-color: #8957e5;   /* Purple */
+  --ifm-table-border-color: var(--ifm-color-emphasis-200);
+  --ifm-table-head-background: var(--ifm-color-emphasis-100);
+  --ifm-table-stripe-background: var(--ifm-color-emphasis-50);
+  --ifm-table-hover-background: var(--ifm-color-emphasis-100);
+  --prism-background-color: #f6f8fa;
+  --prism-color: #24292e;
+  --prism-token-comment: #6a737d;
+  --prism-token-string: #032f62;
+  --prism-token-keyword: #d73a49;
+  --prism-token-function: #6f42c1;
+  --ifm-font-family-base: 'Nunito', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --method-get-color: #3fb950;    /* Brighter Green */
+  --method-post-color: #ff9940;   /* Brighter Orange */
+  --method-put-color: #58a6ff;    /* Brighter Blue */
+  --method-delete-color: #f85149;  /* Brighter Red */
+  --method-patch-color: #a371f7;   /* Brighter Purple */
+  --ifm-table-border-color: var(--ifm-color-emphasis-300);
+  --ifm-table-head-background: var(--ifm-color-emphasis-200);
+  --ifm-table-stripe-background: var(--ifm-color-emphasis-100);
+  --ifm-table-hover-background: var(--ifm-color-emphasis-200);
+  --prism-background-color: #282a36;
+  --prism-color: #f8f8f2;
+  --prism-token-comment: #6272a4;
+  --prism-token-string: #f1fa8c;
+  --prism-token-keyword: #ff79c6;
+  --prism-token-function: #50fa7b;
+}
+
+/* Reduce main heading sizes */
+.markdown h1 {
+  font-size: 2.3rem !important; /* Smaller than default */
+  font-weight: 600 !important;
+}
+
+.markdown h2 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+/* Adjust Featured API component styles */
+.apiTitle {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+}
+
+.apiDescription {
+  font-size: 0.875rem !important;
+}
+
+/* Add these styles for API method indicators in sidebar */
+.api-method {
+  position: relative;
+  padding-left: 48px !important; /* Slightly increased for badge width */
+}
+
+.api-method::before {
+  content: attr(data-method);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+  width: auto;
+  min-width: 36px;
+  text-align: center;
+  border: 1px solid; /* Add border that matches text color */
+}
+
+/* HTTP Method colors - Light mode */
+.api-method.get::before {
+  content: 'GET';
+  color: #2ea043;
+  border-color: currentColor; /* Border matches text color */
+}
+
+.api-method.post::before {
+  content: 'POST';
+  color: #f0883e;
+  border-color: currentColor;
+}
+
+.api-method.put::before {
+  content: 'PUT';
+  color: #3178c6;
+  border-color: currentColor;
+}
+
+.api-method.delete::before {
+  content: 'DELETE';
+  color: #cf222e;
+  border-color: currentColor;
+}
+
+.api-method.patch::before {
+  content: 'PATCH';
+  color: #8957e5;
+  border-color: currentColor;
+}
+
+/* HTTP Method colors - Dark mode */
+[data-theme='dark'] .api-method.get::before {
+  color: #3fb950;
+  border-color: currentColor;
+}
+
+[data-theme='dark'] .api-method.post::before {
+  color: #ff9940;
+  border-color: currentColor;
+}
+
+[data-theme='dark'] .api-method.put::before {
+  color: #58a6ff;
+  border-color: currentColor;
+}
+
+[data-theme='dark'] .api-method.delete::before {
+  color: #f85149;
+  border-color: currentColor;
+}
+
+[data-theme='dark'] .api-method.patch::before {
+  color: #a371f7;
+  border-color: currentColor;
+}
+
+/* API endpoint list styling - Specific to organization.md */
+.api-endpoints {
+  margin: 1rem 0;
+}
+
+.api-endpoint {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+
+.api-endpoint a {
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.api-endpoint a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Method label styles for organization.md */
+.api-endpoint .api-method {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 8px;
+  min-width: 45px;
+  text-align: center;
+  border: 1px solid;
+}
+
+/* HTTP Method colors for organization.md */
+.api-endpoint .api-method.get {
+  color: #2ea043;
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.post {
+  color: #f0883e;
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.put {
+  color: #3178c6;
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.delete {
+  color: #cf222e;
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.patch {
+  color: #8957e5;
+  border-color: currentColor;
+}
+
+/* Dark mode adjustments for organization.md */
+[data-theme='dark'] .api-endpoint .api-method.get {
+  color: #3fb950;
+}
+
+[data-theme='dark'] .api-endpoint .api-method.post {
+  color: #ff9940;
+}
+
+[data-theme='dark'] .api-endpoint .api-method.put {
+  color: #58a6ff;
+}
+
+[data-theme='dark'] .api-endpoint .api-method.delete {
+  color: #f85149;
+}
+
+[data-theme='dark'] .api-endpoint .api-method.patch {
+  color: #a371f7;
+}
+
+/* Sidebar method colors */
+.menu__link.get::before {
+  content: 'GET';
+  color: var(--method-get-color);
+  border-color: currentColor;
+}
+
+.menu__link.post::before {
+  content: 'POST';
+  color: var(--method-post-color);
+  border-color: currentColor;
+}
+
+.menu__link.put::before {
+  content: 'PUT';
+  color: var(--method-put-color);
+  border-color: currentColor;
+}
+
+.menu__link.delete::before {
+  content: 'DELETE';
+  color: var(--method-delete-color);
+  border-color: currentColor;
+}
+
+.menu__link.patch::before {
+  content: 'PATCH';
+  color: var(--method-patch-color);
+  border-color: currentColor;
+}
+
+/* Organization page method colors */
+.api-endpoint .api-method.get {
+  color: var(--method-get-color);
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.post {
+  color: var(--method-post-color);
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.put {
+  color: var(--method-put-color);
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.delete {
+  color: var(--method-delete-color);
+  border-color: currentColor;
+}
+
+.api-endpoint .api-method.patch {
+  color: var(--method-patch-color);
+  border-color: currentColor;
+}
+
+/* Custom table styles */
+.markdown table {
+  display: table;
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--ifm-table-border-color);
+}
+
+.markdown table th {
+  background: var(--ifm-table-head-background);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem 1rem;
+}
+
+.markdown table td {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--ifm-table-border-color);
+}
+
+/* Make monospace text (code) in tables more compact */
+.markdown table code {
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+}
+
+/* Compact table variant */
+.markdown table.compact {
+  font-size: 0.9rem;
+}
+
+.markdown table.compact th,
+.markdown table.compact td {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Zebra striping */
+.markdown table tr:nth-child(even) {
+  background: var(--ifm-table-stripe-background);
+}
+
+/* Code block styling */
+.theme-code-block {
+  background-color: var(--prism-background-color) !important;
+  color: var(--prism-color) !important;
+}
+
+pre[class*="language-"] {
+  background-color: var(--prism-background-color) !important;
+  color: var(--prism-color) !important;
+}
+
+code[class*="language-"] {
+  background-color: transparent !important;
+  color: var(--prism-color) !important;
+}
+
+/* Token colors */
+.token.comment {
+  color: var(--prism-token-comment) !important;
+}
+
+.token.string {
+  color: var(--prism-token-string) !important;
+}
+
+.token.keyword {
+  color: var(--prism-token-keyword) !important;
+}
+
+.token.function {
+  color: var(--prism-token-function) !important;
+}
+
+/* Ensure code blocks use the monospace font */
+code,
+pre,
+.theme-code-block {
+  font-family: var(--ifm-font-family-monospace) !important;
+}
+
+/* Apply Open Sans to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+}
+
+/* Apply Nunito to body text */
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
+/* Adjust code block font size if needed */
+:root {
+  --ifm-code-font-size: 90%;
+}

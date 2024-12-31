@@ -1,0 +1,122 @@
+.responseTable {
+    margin: 1rem 0;
+}
+
+.responseTable table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.responseTable th,
+.responseTable td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.responseTable th {
+    font-weight: var(--ifm-font-weight-semibold);
+    background-color: var(--ifm-color-emphasis-200);
+}
+
+.expandButton {
+    background: transparent;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 16px;
+    line-height: 1;
+    padding: 0;
+    margin-right: 8px;
+    position: relative;
+}
+
+.expandButton:hover {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-emphasis-800);
+}
+
+.fieldCell {
+    display: flex;
+    align-items: center;
+}
+
+.indentedField {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 40px;
+}
+
+/* Vertical dotted line */
+.indentedField::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 0;
+    bottom: 50%;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        var(--ifm-color-emphasis-500) 50%,
+        transparent 50%
+    );
+    background-size: 2px 4px;
+    background-repeat: repeat-y;
+}
+
+/* Horizontal dotted line */
+.indentedField::after {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        var(--ifm-color-emphasis-500) 50%,
+        transparent 50%
+    );
+    background-size: 4px 2px;
+    background-repeat: repeat-x;
+}
+
+/* Parent vertical line that connects all children */
+.nestedContainer::before {
+    content: '';
+    position: absolute;
+    left: 12px; /* Aligns with the expand button */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        var(--ifm-color-emphasis-500) 50%,
+        transparent 50%
+    );
+    background-size: 2px 4px;
+    background-repeat: repeat-y;
+}
+
+.tableRow {
+    background: transparent;
+}
+
+/* Adjust nested items container */
+.nestedContainer {
+    position: relative;
+    padding-left: 40px;
+}
+
+/* Add space for expand button */
+code {
+    margin-left: 4px;
+} 

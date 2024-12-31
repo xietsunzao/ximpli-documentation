@@ -1,0 +1,124 @@
+.codeBlock {
+  position: relative;
+  border-radius: 8px;
+  margin: 1rem 0;
+  background: var(--prism-background-color, #1e1e1e);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  overflow: hidden;
+}
+
+.codeBlock pre {
+  margin: 0;
+  padding: 1.5rem;
+  background-color: transparent;
+  overflow-x: auto;
+}
+
+.codeBlock code {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  font-family: var(--ifm-font-family-monospace);
+  line-height: 1.5;
+}
+
+.tabLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.langIcon {
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Ensure icons stay with labels */
+:global(.tabs__item) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.tabs__item--active) {
+  border-bottom-color: var(--ifm-color-primary) !important;
+}
+
+/* Syntax highlighting base */
+:global(.token.comment),
+:global(.token.prolog),
+:global(.token.doctype),
+:global(.token.cdata) {
+  color: #6a9955;
+}
+
+:global(.token.punctuation) {
+  color: #d4d4d4;
+}
+
+:global(.token.property),
+:global(.token.keyword),
+:global(.token.tag) {
+  color: #569cd6;
+}
+
+:global(.token.string) {
+  color: #ce9178;
+}
+
+:global(.token.operator),
+:global(.token.entity),
+:global(.token.url) {
+  color: #d4d4d4;
+}
+
+:global(.token.function) {
+  color: #dcdcaa;
+}
+
+:global(.token.number) {
+  color: #b5cea8;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .codeBlock {
+  background-color: var(--prism-background-color);
+}
+
+/* Tab styling improvements */
+:global(.tabs-container) {
+  background: transparent !important;
+}
+
+:global(.tabs) {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+}
+
+:global(.tabs__item) {
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9rem !important;
+}
+
+:global(.tabs__item--active) {
+  border-bottom-color: var(--ifm-color-primary) !important;
+}
+
+.pre {
+  margin: 0;
+  padding: 1.5rem;
+  background-color: transparent !important;
+  overflow-x: auto;
+}
+
+.code {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  line-height: 1.5 !important;
+} 
